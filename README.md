@@ -14,6 +14,18 @@ Menggunakan state management <b>getx</b> dan juga <b>clean architecture</b>
 <b>5. Theme Dark Mode and Light Mode</b><br>
 
 # View Apps
-
+<img src="https://github.com/fanfantasi/Furniture/blob/Master/assets/screenshoot.png">
+<video src="https://github.com/fanfantasi/Furniture/blob/Master/assets/demo.mp4" type="video/mp4">
+</video>
 
 # Dependencies
+<ul>
+  <li><a href="https://pub.dev/packages/easy_localization"><b>easy localization</b></a></li>
+  <li><a href="https://pub.dev/packages/dio"><b>dio</b></a></li>
+  <li><a href="https://pub.dev/packages/get"><b>get</b></a></li>
+  <li><a href="https://pub.dev/packages/hive"><b>hive</b></a></li>
+  <li><a href="https://pub.dev/packages/retrofit"><b>retrofit</b></a></li>
+  <li><a href="https://pub.dev/packages/dartz"><b>dartz</b></a></li>
+  <li><a href="https://pub.dev/packages/kiwi"><b>kiwi</b></a></li>
+  <li><a href="https://pub.dev/">etc</a></li>
+</ul>
