@@ -24,6 +24,7 @@ import 'package:home_decor/app/domain/usecases/items/get_remote_images.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_itembyid.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_items.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_itemsbycategory.dart';
+import 'package:home_decor/app/domain/usecases/items/get_remote_ratings.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_recommendation.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_related.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_search.dart';
@@ -108,6 +109,7 @@ abstract class Injector {
   @Register.factory(GetRemoteImagesItem)
   @Register.factory(GetRemoteItemsRelated)
   @Register.factory(GetRemoteItemByid)
+  @Register.factory(GetRemoteRatings)
   @Register.factory(ItemsRepository, from: ItemsRepositoryImpl)
   @Register.factory(FavoriteDataSource, from: FavoriteDatasourceHiveImpl)
   @Register.factory(FavoriteRepository, from: FavoriteRepositoryImpl)

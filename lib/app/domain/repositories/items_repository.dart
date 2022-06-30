@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:home_decor/app/data/model/ratings.dart';
 import 'package:home_decor/app/domain/entities/images_item.dart';
 
 import '../../core/errors/failure.dart';
@@ -15,4 +16,6 @@ abstract class ItemsRepository {
       {int? page, String? search});
   Future<Either<Failure, List<ResultImagesItem>>> imagesitem({int? itemid});
   Future<Either<Failure, ResultItems>> itembyid({int? itemid});
+  Future<Either<Failure, List<ResultRatingsModel>>> ratingsbyitem(
+      {int? page, int? itemid});
 }

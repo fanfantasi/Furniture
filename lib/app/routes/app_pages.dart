@@ -11,6 +11,7 @@ import '../presentation/category/category_binding.dart';
 import '../presentation/dashboard/dashboard_binding.dart';
 import '../presentation/dashboard/dashboard_view.dart';
 import '../presentation/items/item_view.dart';
+import '../presentation/items/widgets/images_view.dart';
 import '../presentation/promo/promo_view.dart';
 import '../presentation/splashscreen/splashscreen_binding.dart';
 import '../presentation/splashscreen/splashscreen_view.dart';
@@ -52,5 +53,9 @@ class AppPages {
         name: Routes.languages,
         page: () => const LanguageScreen(),
         fullscreenDialog: true),
+    GetPage(
+        name: Routes.imageview,
+        fullscreenDialog: true,
+        page: () => const ImagesView()),
   ];
 }

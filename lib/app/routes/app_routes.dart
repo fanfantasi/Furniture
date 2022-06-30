@@ -10,4 +10,5 @@ abstract class Routes {
   static const search = '/search';
   static const searchresult = '/search_result';
   static const languages = '/languages';
+  static const imageview = '/imageview';
 }

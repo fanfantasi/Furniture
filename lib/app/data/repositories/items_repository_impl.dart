@@ -1,3 +1,4 @@
+import 'package:home_decor/app/data/model/ratings.dart';
 import 'package:home_decor/app/domain/entities/images_item.dart';
 import 'package:home_decor/app/domain/entities/items.dart';
 import 'package:home_decor/app/core/errors/failure.dart';
@@ -98,6 +99,20 @@ class ItemsRepositoryImpl extends ItemsRepository {
       final response = await remoteDataSource.itembyid(itemid: itemid);
       return response.fold((failure) => Left(failure), (items) async {
         return Right(items);
+      });
+    } on Exception catch (_) {
+      return const Left(Failure('Something went wrong'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ResultRatingsModel>>> ratingsbyitem(
+      {int? page, int? itemid}) async {
+    try {
+      final response =
+          await remoteDataSource.ratingsbyitem(page: page, itemid: itemid);
+      return response.fold((failure) => Left(failure), (ratings) async {
+        return Right(ratings);
       });
     } on Exception catch (_) {
       return const Left(Failure('Something went wrong'));

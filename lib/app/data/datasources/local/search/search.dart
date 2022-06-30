@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'search.g.dart';
 
-@HiveType(adapterName: 'SearchAdapter', typeId: 0)
+@HiveType(adapterName: 'SearchAdapter', typeId: 2)
 class SearchHive {
   @HiveField(0)
   int? id;

@@ -59,6 +59,7 @@ class _$Injector extends Injector {
       ..registerFactory((c) => GetRemoteImagesItem(c<ItemsRepository>()))
       ..registerFactory((c) => GetRemoteItemsRelated(c<ItemsRepository>()))
       ..registerFactory((c) => GetRemoteItemByid(c<ItemsRepository>()))
+      ..registerFactory((c) => GetRemoteRatings(c<ItemsRepository>()))
       ..registerFactory<ItemsRepository>((c) =>
           ItemsRepositoryImpl(remoteDataSource: c<ItemsRemoteDatasource>()))
       ..registerFactory<FavoriteDataSource>((c) => FavoriteDatasourceHiveImpl())

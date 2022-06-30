@@ -5,6 +5,7 @@ import 'package:home_decor/app/data/model/images_item.dart';
 
 import '../../../core/errors/failure.dart';
 import '../../model/items.dart';
+import '../../model/ratings.dart';
 
 class ItemsRemoteDatasource {
   final RestClient client;
@@ -126,6 +127,24 @@ class ItemsRemoteDatasource {
         return Left(Failure(items['message']));
       } else {
         return Right(ResultItemsModel.fromJson(items['result']));
+      }
+    } on DioError catch (error) {
+      return Left(Failure(error.message));
+    } on Exception catch (_) {
+      return const Left(Failure('Something went wrong'));
+    }
+  }
+
+  Future<Either<Failure, List<ResultRatingsModel>>> ratingsbyitem(
+      {int? page, int? itemid}) async {
+    try {
+      final items = await client.ratingbyitem(page: page, itemid: itemid);
+      if (!items['status']) {
+        return Left(Failure(items['message']));
+      } else {
+        return Right(List.from(items['result'])
+            .map((e) => ResultRatingsModel.fromJson(e))
+            .toList());
       }
     } on DioError catch (error) {
       return Left(Failure(error.message));

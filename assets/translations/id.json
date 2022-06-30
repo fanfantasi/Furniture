@@ -24,6 +24,13 @@
     "help":"Bantuan",
     "help desc":"Pusat bantuan, hubungi kami dan kebijakan privasi",
     "related":"Produk Serupa",
+    "ratingItems":"Penilaian Produk",
+    "features": "Tampilan",
+    "quality": "Kualitas",
+    "bad":"Jelek",
+    "normal":"Normal",
+    "good":"Bagus",
+    "verygood":"Bagus Sekali",
 
 
     "don't have an account?" : "Tidak Punya Akun ?",

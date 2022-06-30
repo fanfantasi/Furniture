@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:home_decor/app/routes/app_pages.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 import '../../presentation/items/item_controller.dart';
@@ -48,7 +49,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
     } else {
       final int alpha =
           (shrinkOffset / (maxExtent - minExtent) * 255).clamp(0, 255).toInt();
-      return Color.fromARGB(alpha, 0, 0, 0);
+      return Color.fromARGB(alpha, 100, 100, 100);
     }
   }
 
@@ -76,7 +77,10 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                           physics: const BouncingScrollPhysics(),
                           itemBuilder: (BuildContext context, int i) {
                             return GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Get.toNamed(Routes.imageview,
+                                    arguments: controller.images[i].image!);
+                              },
                               child: Hero(
                                   tag: 'zoom' + controller.images[i].image!,
                                   transitionOnUserGestures: true,
@@ -217,7 +221,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                         ),
                         Container(
                           padding: const EdgeInsets.only(left: 8.0),
-                          width: MediaQuery.of(context).size.width / 1.4,
+                          width: MediaQuery.of(context).size.width / 1.5,
                           child: AutoSizeText(
                             title,
                             maxFontSize: 16,
@@ -228,6 +232,38 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                               fontWeight: FontWeight.w600,
                               color: makeStickyHeaderTextColor(
                                   shrinkOffset, false),
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () => Get.back(),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 6, vertical: 6.0),
+                            margin: const EdgeInsets.only(left: 12.0),
+                            decoration: BoxDecoration(
+                                color: Colors.black.withOpacity(.2),
+                                borderRadius: BorderRadius.circular(25)),
+                            child: Icon(
+                              CupertinoIcons.arrowshape_turn_up_right,
+                              color:
+                                  makeStickyHeaderTextColor(shrinkOffset, true),
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () => Get.back(),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 6, vertical: 6.0),
+                            margin: const EdgeInsets.only(left: 12.0),
+                            decoration: BoxDecoration(
+                                color: Colors.black.withOpacity(.2),
+                                borderRadius: BorderRadius.circular(25)),
+                            child: Icon(
+                              Icons.shopping_cart_outlined,
+                              color:
+                                  makeStickyHeaderTextColor(shrinkOffset, true),
                             ),
                           ),
                         ),

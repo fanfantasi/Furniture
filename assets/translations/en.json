@@ -23,6 +23,13 @@
     "help":"Help",
     "help desc":"Help center, contact us and privacy policy",
     "related":"Related Product",
+    "ratingItems":"Ratings Produk",
+    "features": "Features",
+    "quality": "Quality",
+    "bad":"Bad",
+    "normal":"Normal",
+    "good":"Good",
+    "verygood":"Veri Good",
 
     "don't have an account?" : "Don't have an account?",
     "create" : "Create",

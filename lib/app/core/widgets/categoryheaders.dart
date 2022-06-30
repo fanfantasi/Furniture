@@ -46,7 +46,7 @@ class SliverCustomHeaderCategoryDelegate
     } else {
       final int alpha =
           (shrinkOffset / (maxExtent - minExtent) * 255).clamp(0, 255).toInt();
-      return Color.fromARGB(alpha, 0, 0, 0);
+      return Color.fromARGB(alpha, 100, 100, 100);
     }
   }
 
@@ -178,7 +178,7 @@ class SliverCustomHeaderCategoryDelegate
                                 horizontal: 6, vertical: 6.0),
                             margin: const EdgeInsets.only(left: 12.0),
                             decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(.4),
+                                color: Colors.black.withOpacity(.2),
                                 borderRadius: BorderRadius.circular(25)),
                             child: Icon(
                               CupertinoIcons.chevron_back,

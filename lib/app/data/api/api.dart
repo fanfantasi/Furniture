@@ -50,4 +50,8 @@ abstract class RestClient {
 
   @POST("/items/itembyid")
   Future<dynamic> itembyid({@Part() int? itemid});
+
+  //Ratings
+  @POST("/items/ratings")
+  Future<dynamic> ratingbyitem({@Path('page') int? page, @Part() int? itemid});
 }
