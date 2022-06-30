@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:home_decor/app/core/errors/failure.dart';
 import 'package:home_decor/app/core/usecases/usecase.dart';
 import 'package:home_decor/app/domain/entities/login_user.dart';
+import 'package:home_decor/app/presentation/cart/cart_controller.dart';
 import 'package:home_decor/injector.dart';
 import 'package:home_decor/main.dart';
 
@@ -15,6 +16,8 @@ class ProfilController extends GetxController {
 
   RxBool isSigningIn = false.obs;
   final viewState = ViewState.initial.obs;
+
+  RxInt get cartCounts => Get.find<CartController>().carts.length.obs;
 
   @override
   void onInit() async {

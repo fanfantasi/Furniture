@@ -50,7 +50,7 @@ class SearchDatasourceHiveImpl implements SearchDataSource {
         final appDocumentDir = await getApplicationDocumentsDirectory();
         Hive.init(appDocumentDir.path);
       }
-      if (!Hive.isAdapterRegistered(0)) {
+      if (!Hive.isAdapterRegistered(2)) {
         Hive.registerAdapter(SearchAdapter());
       }
       if (!Hive.isBoxOpen(_kSearchBoxName)) {

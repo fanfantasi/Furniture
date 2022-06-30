@@ -11,7 +11,6 @@ class GetRemoteItemByid implements UseCase<ResultItems, int> {
 
   @override
   Future<Either<Failure, ResultItems>> call(params) async {
-    await Future.delayed(const Duration(milliseconds: 200));
     return repository.itembyid(itemid: params);
   }
 }

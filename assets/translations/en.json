@@ -9,9 +9,10 @@
     "page not found": "Page not found",
     "page not found desc": "We are sorry but the page you are looking for does not exist\nYou could return latter again",
 
-    "find your favorite": "Find your favorite",
+    "find your favorite": "FIND  YOUR FAVORITE",
     "favorite" :"Favorite",
     "message" :"Message",
+    "cart": "Cart",
     "profile":"Profile",
     "search result" :"Search Results",
     "dark mode" : "Dark Mode",
@@ -180,5 +181,7 @@
     
     "other items" : "Other products",
     "see all" : "See all",
-    "shop now" :"Shop Now"
+    "shop now" :"Shop Now",
+    "success add item": "Success add item",
+    "success update item": "Success update item"
 }

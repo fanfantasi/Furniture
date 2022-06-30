@@ -32,7 +32,7 @@ class UserRatingWidget extends StatelessWidget {
                 placeholder: kTransparentImage,
                 image: resultRatings[i].avatar!,
                 fit: BoxFit.fitWidth,
-                imageErrorBuilder: (BuildContext, Object, StackTrace) {
+                imageErrorBuilder: (BuildContext context, Object obj, _) {
                   return Container(
                     color: Colors.grey[300],
                     child: const Icon(CupertinoIcons.person_alt_circle),

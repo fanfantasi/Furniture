@@ -14,6 +14,7 @@ import 'package:home_decor/app/domain/usecases/items/get_remote_images.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_itembyid.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_ratings.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_related.dart';
+import 'package:home_decor/app/presentation/cart/cart_controller.dart';
 import 'package:home_decor/app/presentation/category/category_controller.dart';
 import 'package:home_decor/app/presentation/favorite/favorite_controller.dart';
 import 'package:home_decor/app/presentation/home/home_controller.dart';
@@ -64,6 +65,8 @@ class ItemController extends GetxController {
   List<ResultItems> localitem = [];
   List<ResultItems> get localitems => List.from(localitem);
 
+  RxInt cartCount = 0.obs;
+
   @override
   void onInit() async {
     await Injector.resolve<FavoriteDataSource>().initDb();
@@ -75,6 +78,7 @@ class ItemController extends GetxController {
     } else {
       fetchItemById();
     }
+    cartCount.value = Get.find<CartController>().carts.length;
     super.onInit();
   }
 
@@ -349,6 +353,27 @@ class ItemController extends GetxController {
       Get.find<FavoriteController>().countItem.value += 1;
     }
     return !isLiked;
+  }
+
+  void addToCart() async {
+    final cartController = Get.find<CartController>();
+    final res = await cartController.postCart(cart: resultItems);
+    if (res) {
+      addController.success();
+    } else {
+      addController.error();
+    }
+
+    Future.delayed(const Duration(milliseconds: 300), () {
+      addController.reset();
+      cartCount.value = Get.find<CartController>().carts.length;
+    });
+  }
+
+  void clearCart() async {
+    Get.find<CartController>().clearCart();
+    cartCount.value = Get.find<CartController>().carts.length;
+    print(cartCount);
   }
 
   void _setState(ViewState state) {

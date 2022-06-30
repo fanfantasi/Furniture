@@ -13,6 +13,7 @@
     "find your favorite": "TEMUKAN BARANG FAVORITMU",
     "favorite" :"Favorit",
     "message" :"Pesan",
+    "cart": "Keranjang",
     "profile":"Profil",
     "search result" :"Hasil Pencarian",
     "dark mode" : "Mode Gelap",
@@ -181,5 +182,7 @@
 
     "other items" : "Produk lain dari toko ini",
     "see all" : "Lihat semua",
-    "shop now" :"Beli sekarang"
+    "shop now" :"Beli sekarang",
+    "success add item": "Sukses menambahkan produk",
+    "success update item": "Sukses memperbaharui produk"
 }

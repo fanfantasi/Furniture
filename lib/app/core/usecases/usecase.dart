@@ -75,3 +75,28 @@ class ParamsSearch extends Equatable {
   @override
   List<Object> get props => [id!, keyword!, createdAt!];
 }
+
+class ParamsCart extends Equatable {
+  final int? id;
+  final String? title;
+  final String? subtitle;
+  final String? desc;
+  final String? image;
+  final int? price;
+  final int? point;
+  final int? qty;
+  final DateTime? createdAt;
+  const ParamsCart(
+      {required this.id,
+      required this.title,
+      required this.subtitle,
+      required this.desc,
+      required this.image,
+      required this.price,
+      required this.point,
+      required this.qty,
+      required this.createdAt});
+  @override
+  List<Object> get props =>
+      [id!, title!, subtitle!, desc!, image!, price!, point!, qty!, createdAt!];
+}

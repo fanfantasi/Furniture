@@ -59,7 +59,7 @@ class FavoriteDatasourceHiveImpl implements FavoriteDataSource {
         final appDocumentDir = await getApplicationDocumentsDirectory();
         Hive.init(appDocumentDir.path);
       }
-      if (!Hive.isAdapterRegistered(7)) {
+      if (!Hive.isAdapterRegistered(4)) {
         Hive.registerAdapter(FavoriteAdapter());
       }
       if (!Hive.isBoxOpen(_kFavoriteBoxName)) {

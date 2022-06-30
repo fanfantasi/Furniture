@@ -252,21 +252,48 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () => Get.back(),
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 6, vertical: 6.0),
-                            margin: const EdgeInsets.only(left: 12.0),
-                            decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(.2),
-                                borderRadius: BorderRadius.circular(25)),
-                            child: Icon(
-                              Icons.shopping_cart_outlined,
-                              color:
-                                  makeStickyHeaderTextColor(shrinkOffset, true),
-                            ),
-                          ),
-                        ),
+                            onTap: () => controller.clearCart(),
+                            child: Stack(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 6, vertical: 6.0),
+                                  margin: const EdgeInsets.only(left: 12.0),
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(25)),
+                                  child: Icon(
+                                    Icons.shopping_cart_outlined,
+                                    color: makeStickyHeaderTextColor(
+                                        shrinkOffset, true),
+                                  ),
+                                ),
+                                Obx(() => Visibility(
+                                      visible: controller.cartCount > 0,
+                                      child: Positioned(
+                                          top: 0.0,
+                                          right: 0.0,
+                                          child: Container(
+                                            height: 14,
+                                            width: 14,
+                                            decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.red,
+                                            ),
+                                            child: Center(
+                                              child: AutoSizeText(
+                                                '${(controller.cartCount > 9 ? '9+' : controller.cartCount)}',
+                                                maxFontSize: 10,
+                                                minFontSize: 8,
+                                                style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 10),
+                                              ),
+                                            ),
+                                          )),
+                                    ))
+                              ],
+                            )),
                       ],
                     ),
                   ),

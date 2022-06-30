@@ -32,7 +32,6 @@ class DashboardScreen extends GetView<DashboardController> {
         return const PesanScreen();
       case 3:
         return const ProfilScreen();
-
       default:
         return const HomeView();
     }

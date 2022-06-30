@@ -84,4 +84,19 @@ class _$Injector extends Injector {
       ..registerFactory((c) => ClearLocalSearch(c<SearchRepository>()))
       ..registerFactory((c) => PostLocalSearch(c<SearchRepository>()));
   }
+
+  @override
+  void configureCartFeatureModuleFactories() {
+    final KiwiContainer container = KiwiContainer();
+    container
+      ..registerFactory<CartDataSource>((c) => CartDatasourceHiveImpl())
+      ..registerFactory<CartRepository>(
+          (c) => CartRepositoryImpl(localDataSource: c<CartDataSource>()))
+      ..registerFactory((c) => GetLocalCart(c<CartRepository>()))
+      ..registerFactory((c) => GetSingleLocalCart(c<CartRepository>()))
+      ..registerFactory((c) => DeleteLocalCart(c<CartRepository>()))
+      ..registerFactory((c) => ClearLocalCart(c<CartRepository>()))
+      ..registerFactory((c) => PostLocalCart(c<CartRepository>()))
+      ..registerFactory((c) => UpdatetLocalCart(c<CartRepository>()));
+  }
 }

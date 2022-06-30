@@ -70,6 +70,34 @@ class FavoriteScreen extends GetView<FavoriteController> {
                       ));
 
             case ViewState.data:
+              if (controller.items.isEmpty) {
+                return Container(
+                  height: Get.height - kToolbarHeight,
+                  padding: const EdgeInsets.symmetric(vertical: 12.0),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/icons/ic-empty.png',
+                          scale: 2,
+                        ),
+                        const SizedBox(
+                          height: 12.0,
+                        ),
+                        AutoSizeText(
+                          'No Results Found',
+                          maxFontSize: 16,
+                          minFontSize: 12,
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              }
               return MasonryGridView.count(
                 crossAxisCount: (controller.gridOrList.value) ? 2 : 1,
                 mainAxisSpacing: 9 / 6,

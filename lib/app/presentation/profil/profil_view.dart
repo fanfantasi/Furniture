@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -127,7 +128,7 @@ class ProfilScreen extends GetView<ProfilController> {
               radius: 18,
               child: Icon(
                 Icons.wb_sunny,
-                size: 18,
+                size: 22,
                 color: Colors.indigo.shade100,
               ),
             ),
@@ -149,12 +150,60 @@ class ProfilScreen extends GetView<ProfilController> {
           const core_widgets.DividerWidget(),
           ListTile(
             contentPadding: const EdgeInsets.all(0),
+            leading: Stack(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.teal.shade500,
+                  radius: 18,
+                  child: Icon(
+                    Icons.shopping_cart_outlined,
+                    size: 22,
+                    color: Colors.teal.shade100,
+                  ),
+                ),
+                Obx(() => Visibility(
+                      visible: controller.cartCounts > 0,
+                      child: Positioned(
+                          top: 0.0,
+                          right: 0.0,
+                          child: Container(
+                            height: 14,
+                            width: 14,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.red,
+                            ),
+                            child: Center(
+                              child: AutoSizeText(
+                                '${(controller.cartCounts > 9 ? '9+' : controller.cartCounts)}',
+                                maxFontSize: 10,
+                                minFontSize: 8,
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 10),
+                              ),
+                            ),
+                          )),
+                    ))
+              ],
+            ),
+            title: Text(
+              'cart'.tr(),
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Theme.of(context).colorScheme.primary),
+            ),
+            subtitle: Text('help desc'.tr()),
+          ),
+          const core_widgets.DividerWidget(),
+          ListTile(
+            contentPadding: const EdgeInsets.all(0),
             leading: CircleAvatar(
               backgroundColor: Colors.green.shade500,
               radius: 18,
               child: Icon(
                 Icons.help,
-                size: 18,
+                size: 22,
                 color: Colors.green.shade100,
               ),
             ),
@@ -177,7 +226,7 @@ class ProfilScreen extends GetView<ProfilController> {
               radius: 18,
               child: Icon(
                 Icons.logout,
-                size: 18,
+                size: 22,
                 color: Colors.red.shade100,
               ),
             ),

@@ -226,6 +226,8 @@ class ItemScreen extends GetView<ItemController> {
                             },
                             borderRadius: 2,
                             valueColor: Theme.of(context).colorScheme.onPrimary,
+                            successColor: Colors.teal.shade400,
+                            errorColor: Colors.teal.shade400,
                             color: Colors.teal.shade400,
                             elevation: 0,
                           ),
@@ -237,11 +239,11 @@ class ItemScreen extends GetView<ItemController> {
                             child: Icon(Icons.add_shopping_cart_rounded,
                                 color: Theme.of(context).colorScheme.onPrimary),
                             controller: controller.addController,
-                            onPressed: () {
-                              controller.addController.reset();
-                            },
+                            onPressed: () => controller.addToCart(),
                             borderRadius: 2,
                             valueColor: Theme.of(context).colorScheme.onPrimary,
+                            successColor: Colors.teal.shade400,
+                            errorColor: Colors.teal.shade400,
                             color: Colors.teal.shade400,
                             elevation: 0,
                           ),

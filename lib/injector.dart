@@ -1,20 +1,30 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
+import 'package:home_decor/app/data/datasources/local/cart/cart_local_datasourceimpl.dart';
+import 'package:home_decor/app/data/datasources/local/cart_local_datasoure.dart';
 import 'package:home_decor/app/data/datasources/local/favorite/favorite_local_datasourceimpl.dart';
 import 'package:home_decor/app/data/datasources/local/favorite_local_datasource.dart';
 import 'package:home_decor/app/data/datasources/local/search/search_local_datasourceimpl.dart';
 import 'package:home_decor/app/data/datasources/local/search_local_datasource.dart';
 import 'package:home_decor/app/data/datasources/remote/index.dart';
+import 'package:home_decor/app/data/repositories/cart_repository_impl.dart';
 import 'package:home_decor/app/data/repositories/category_repository_impl.dart';
 import 'package:home_decor/app/data/repositories/favorite_repository_impl.dart';
 import 'package:home_decor/app/data/repositories/items_repository_impl.dart';
 import 'package:home_decor/app/data/repositories/promo_repository_impl.dart';
 import 'package:home_decor/app/data/repositories/search_repository_impl.dart';
+import 'package:home_decor/app/domain/repositories/cart_repository.dart';
 import 'package:home_decor/app/domain/repositories/category_repository.dart';
 import 'package:home_decor/app/domain/repositories/favorite_repository.dart';
 import 'package:home_decor/app/domain/repositories/items_repository.dart';
 import 'package:home_decor/app/domain/repositories/promo_repository.dart';
 import 'package:home_decor/app/domain/repositories/search_repository.dart';
+import 'package:home_decor/app/domain/usecases/cart/clear_local_cart.dart';
+import 'package:home_decor/app/domain/usecases/cart/delete_local_cart.dart';
+import 'package:home_decor/app/domain/usecases/cart/get_local_cart.dart';
+import 'package:home_decor/app/domain/usecases/cart/get_local_single_cart.dart';
+import 'package:home_decor/app/domain/usecases/cart/post_local_cart.dart';
+import 'package:home_decor/app/domain/usecases/cart/update_local_cart.dart';
 import 'package:home_decor/app/domain/usecases/category/get_remote_category.dart';
 import 'package:home_decor/app/domain/usecases/favorite/delete_local_favorite.dart';
 import 'package:home_decor/app/domain/usecases/favorite/get_local_favorite.dart';
@@ -74,6 +84,7 @@ abstract class Injector {
     configurePromoFeatureModuleFactories();
     configureItemsFeatureModuleFactories();
     configureSearchFeatureModuleFactories();
+    configureCartFeatureModuleFactories();
   }
 
   // Feature module instances
@@ -128,4 +139,15 @@ abstract class Injector {
   @Register.factory(ClearLocalSearch)
   @Register.factory(PostLocalSearch)
   void configureSearchFeatureModuleFactories();
+
+  //Cart
+  @Register.factory(CartDataSource, from: CartDatasourceHiveImpl)
+  @Register.factory(CartRepository, from: CartRepositoryImpl)
+  @Register.factory(GetLocalCart)
+  @Register.factory(GetSingleLocalCart)
+  @Register.factory(DeleteLocalCart)
+  @Register.factory(ClearLocalCart)
+  @Register.factory(PostLocalCart)
+  @Register.factory(UpdatetLocalCart)
+  void configureCartFeatureModuleFactories();
 }
