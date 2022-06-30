@@ -14,6 +14,7 @@ class NoParams extends Equatable {
 
 class ParamsFavorite extends Equatable {
   final int? id;
+  final int? categoryid;
   final String? title;
   final String? subtitle;
   final String? desc;
@@ -30,6 +31,7 @@ class ParamsFavorite extends Equatable {
   final bool? favorite;
   const ParamsFavorite(
       {required this.id,
+      required this.categoryid,
       required this.title,
       required this.subtitle,
       required this.desc,
@@ -47,6 +49,7 @@ class ParamsFavorite extends Equatable {
   @override
   List<Object> get props => [
         id!,
+        categoryid!,
         title!,
         subtitle!,
         desc!,

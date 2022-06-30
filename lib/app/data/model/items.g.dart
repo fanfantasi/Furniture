@@ -23,6 +23,7 @@ Map<String, dynamic> _$ItemsModelToJson(ItemsModel instance) =>
 ResultItemsModel _$ResultItemsModelFromJson(Map<String, dynamic> json) =>
     ResultItemsModel(
       id: json['id'] as int?,
+      categoryid: json['categoryid'] as int?,
       title: json['title'] as String?,
       subtitle: json['subtitle'] as String?,
       desc: json['desc'] as String?,
@@ -42,6 +43,7 @@ ResultItemsModel _$ResultItemsModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$ResultItemsModelToJson(ResultItemsModel instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'categoryid': instance.categoryid,
       'title': instance.title,
       'subtitle': instance.subtitle,
       'desc': instance.desc,

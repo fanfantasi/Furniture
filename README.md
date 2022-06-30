@@ -15,8 +15,6 @@ Menggunakan state management <b>getx</b> dan juga <b>clean architecture</b>
 
 # View Apps
 <img src="https://github.com/fanfantasi/Furniture/blob/Master/assets/screenshoot.png">
-<video src="https://github.com/fanfantasi/Furniture/blob/Master/assets/demo.mp4" type="video/mp4">
-</video>
 
 # Dependencies
 <ul>

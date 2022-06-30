@@ -36,6 +36,7 @@ class FavoriteRepositoryImpl implements FavoriteRepository {
     try {
       final bool = await localDataSource.insertFavorite(ResultItemsModel(
           id: params!.id,
+          categoryid: params.categoryid,
           title: params.title,
           subtitle: params.subtitle,
           desc: params.desc,

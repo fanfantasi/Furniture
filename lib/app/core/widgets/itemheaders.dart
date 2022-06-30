@@ -1,15 +1,18 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:transparent_image/transparent_image.dart';
 
+import '../../presentation/items/item_controller.dart';
+
 class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   final double collapsedHeight;
   final double expandedHeight;
   final double paddingTop;
-  final String imgUrl;
+  final ItemController controller;
   final int? point;
   final String title;
 
@@ -17,7 +20,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
     required this.collapsedHeight,
     required this.expandedHeight,
     required this.paddingTop,
-    required this.imgUrl,
+    required this.controller,
     this.point,
     required this.title,
   });
@@ -65,15 +68,39 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
             Stack(
               children: [
                 SizedBox(
-                  height: Get.height / 4,
+                  height: maxExtent,
                   width: Get.width,
-                  child: Hero(
-                      tag: imgUrl,
-                      child: FadeInImage.memoryNetwork(
-                        placeholder: kTransparentImage,
-                        image: imgUrl,
-                        fit: point == null ? BoxFit.cover : BoxFit.contain,
-                      )),
+                  child: (controller.images.isNotEmpty)
+                      ? Swiper(
+                          autoplay: false,
+                          physics: const BouncingScrollPhysics(),
+                          itemBuilder: (BuildContext context, int i) {
+                            return GestureDetector(
+                              onTap: () {},
+                              child: Hero(
+                                  tag: 'zoom' + controller.images[i].image!,
+                                  transitionOnUserGestures: true,
+                                  child: FadeInImage.memoryNetwork(
+                                    placeholder: kTransparentImage,
+                                    image: controller.images[i].image!,
+                                    fit: point == null
+                                        ? BoxFit.cover
+                                        : BoxFit.scaleDown,
+                                  )),
+                            );
+                          },
+                          itemCount: controller.images.length,
+                          loop: false,
+                          pagination: const SwiperPagination(
+                              alignment: Alignment.bottomRight,
+                              builder: SwiperPagination.fraction,
+                              margin: EdgeInsets.only(bottom: 22)),
+                        )
+                      : FadeInImage.memoryNetwork(
+                          placeholder: kTransparentImage,
+                          image: controller.resultItems.image!,
+                          fit: point == null ? BoxFit.cover : BoxFit.scaleDown,
+                        ),
                 ),
                 Positioned(
                     bottom: 0,
@@ -179,7 +206,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                                 horizontal: 6, vertical: 6.0),
                             margin: const EdgeInsets.only(left: 12.0),
                             decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(.4),
+                                color: Colors.black.withOpacity(.2),
                                 borderRadius: BorderRadius.circular(25)),
                             child: Icon(
                               CupertinoIcons.chevron_back,

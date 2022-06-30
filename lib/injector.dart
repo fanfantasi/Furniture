@@ -20,9 +20,12 @@ import 'package:home_decor/app/domain/usecases/favorite/delete_local_favorite.da
 import 'package:home_decor/app/domain/usecases/favorite/get_local_favorite.dart';
 import 'package:home_decor/app/domain/usecases/favorite/getsingle_local_favorite.dart';
 import 'package:home_decor/app/domain/usecases/favorite/post_local_favorite.dart';
+import 'package:home_decor/app/domain/usecases/items/get_remote_images.dart';
+import 'package:home_decor/app/domain/usecases/items/get_remote_itembyid.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_items.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_itemsbycategory.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_recommendation.dart';
+import 'package:home_decor/app/domain/usecases/items/get_remote_related.dart';
 import 'package:home_decor/app/domain/usecases/items/get_remote_search.dart';
 import 'package:home_decor/app/domain/usecases/promo/get_remote_promo.dart';
 import 'package:home_decor/app/domain/usecases/search/clear_local_search.dart';
@@ -102,6 +105,9 @@ abstract class Injector {
   @Register.factory(GetRemoteItemsByCategory)
   @Register.factory(GetRemoteSearchItems)
   @Register.factory(GetRemoteRecommendation)
+  @Register.factory(GetRemoteImagesItem)
+  @Register.factory(GetRemoteItemsRelated)
+  @Register.factory(GetRemoteItemByid)
   @Register.factory(ItemsRepository, from: ItemsRepositoryImpl)
   @Register.factory(FavoriteDataSource, from: FavoriteDatasourceHiveImpl)
   @Register.factory(FavoriteRepository, from: FavoriteRepositoryImpl)

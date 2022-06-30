@@ -46,6 +46,9 @@ class FavoriteHive {
   @HiveField(14)
   bool? favorite;
 
+  @HiveField(15)
+  int? categoryid;
+
   FavoriteHive(
       {this.id,
       this.title,
@@ -60,5 +63,6 @@ class FavoriteHive {
       this.recommend,
       this.point,
       this.price,
-      this.favorite});
+      this.favorite,
+      this.categoryid});
 }

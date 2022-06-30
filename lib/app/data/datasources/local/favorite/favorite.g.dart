@@ -31,13 +31,14 @@ class FavoriteAdapter extends TypeAdapter<FavoriteHive> {
       point: fields[12] as int?,
       price: fields[13] as int?,
       favorite: fields[14] as bool?,
+      categoryid: fields[15] as int?,
     );
   }
 
   @override
   void write(BinaryWriter writer, FavoriteHive obj) {
     writer
-      ..writeByte(14)
+      ..writeByte(15)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -65,7 +66,9 @@ class FavoriteAdapter extends TypeAdapter<FavoriteHive> {
       ..writeByte(13)
       ..write(obj.price)
       ..writeByte(14)
-      ..write(obj.favorite);
+      ..write(obj.favorite)
+      ..writeByte(15)
+      ..write(obj.categoryid);
   }
 
   @override

@@ -18,6 +18,7 @@ class ItemsModel extends Items {
 class ResultItemsModel extends ResultItems {
   const ResultItemsModel(
       {int? id,
+      int? categoryid,
       String? title,
       String? subtitle,
       String? desc,
@@ -34,6 +35,7 @@ class ResultItemsModel extends ResultItems {
       bool favorite = false})
       : super(
             id: id,
+            categoryid: categoryid,
             title: title,
             subtitle: subtitle,
             desc: desc,

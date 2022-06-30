@@ -24,7 +24,7 @@ class CategoryScreen extends GetView<CategoryController> {
         slivers: [
           SliverPersistentHeader(
             pinned: true,
-            delegate: core_widgets.SliverCustomHeaderDelegate(
+            delegate: core_widgets.SliverCustomHeaderCategoryDelegate(
                 collapsedHeight: 60,
                 imgUrl: controller.category.banner!,
                 expandedHeight: 160,

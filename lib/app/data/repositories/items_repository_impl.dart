@@ -1,3 +1,4 @@
+import 'package:home_decor/app/domain/entities/images_item.dart';
 import 'package:home_decor/app/domain/entities/items.dart';
 import 'package:home_decor/app/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
@@ -56,6 +57,45 @@ class ItemsRepositoryImpl extends ItemsRepository {
       {int? page}) async {
     try {
       final response = await remoteDataSource.recomendation(page: page);
+      return response.fold((failure) => Left(failure), (items) async {
+        return Right(items);
+      });
+    } on Exception catch (_) {
+      return const Left(Failure('Something went wrong'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ResultItems>>> itemrelatedRemote(
+      {int? page, int? categoryid, int? itemid}) async {
+    try {
+      final response = await remoteDataSource.itemsrelated(
+          page: page, categoryid: categoryid, itemid: itemid);
+      return response.fold((failure) => Left(failure), (items) async {
+        return Right(items);
+      });
+    } on Exception catch (_) {
+      return const Left(Failure('Something went wrong'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ResultImagesItem>>> imagesitem(
+      {int? itemid}) async {
+    try {
+      final response = await remoteDataSource.imagesitem(itemid: itemid);
+      return response.fold((failure) => Left(failure), (items) async {
+        return Right(items);
+      });
+    } on Exception catch (_) {
+      return const Left(Failure('Something went wrong'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, ResultItems>> itembyid({int? itemid}) async {
+    try {
+      final response = await remoteDataSource.itembyid(itemid: itemid);
       return response.fold((failure) => Left(failure), (items) async {
         return Right(items);
       });

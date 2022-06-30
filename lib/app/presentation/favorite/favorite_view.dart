@@ -75,8 +75,7 @@ class FavoriteScreen extends GetView<FavoriteController> {
                 mainAxisSpacing: 9 / 6,
                 crossAxisSpacing: 9 / 6,
                 primary: false,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
                 itemCount: controller.items.length,
@@ -98,7 +97,6 @@ class FavoriteScreen extends GetView<FavoriteController> {
                   mainAxisSpacing: 9 / 6,
                   crossAxisSpacing: 9 / 6,
                   primary: false,
-                  shrinkWrap: true,
                   physics: const BouncingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(
                       horizontal: 8.0, vertical: 8.0),

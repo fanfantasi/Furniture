@@ -117,6 +117,7 @@ class CategoryController extends GetxController {
         final result = item[item.indexWhere((e) => e.id == int.parse(el))];
         ResultItemsModel res = ResultItemsModel(
             id: result.id,
+            categoryid: result.categoryid,
             title: result.title,
             subtitle: result.subtitle,
             desc: result.desc,
@@ -136,6 +137,7 @@ class CategoryController extends GetxController {
         final result = item[item.indexWhere((e) => e.id == int.parse(el))];
         ResultItemsModel res = ResultItemsModel(
             id: result.id,
+            categoryid: result.categoryid,
             title: result.title,
             subtitle: result.subtitle,
             desc: result.desc,

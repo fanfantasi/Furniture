@@ -16,7 +16,8 @@ class ItemsListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.toNamed(Routes.item, arguments: resultItems),
+      onTap: () => Get.toNamed(Routes.item,
+          arguments: resultItems.id!, preventDuplicates: false),
       child: Container(
         padding: const EdgeInsets.only(top: 10.0),
         decoration: BoxDecoration(

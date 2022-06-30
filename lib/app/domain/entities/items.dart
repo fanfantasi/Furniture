@@ -13,6 +13,7 @@ class Items extends Equatable {
 
 class ResultItems extends Equatable {
   final int? id;
+  final int? categoryid;
   final String? title;
   final String? subtitle;
   final String? desc;
@@ -29,6 +30,7 @@ class ResultItems extends Equatable {
   final int? price;
   const ResultItems(
       {this.id,
+      this.categoryid,
       this.title,
       this.subtitle,
       this.desc,
@@ -47,6 +49,7 @@ class ResultItems extends Equatable {
   @override
   List<Object> get props => [
         id!,
+        categoryid!,
         title!,
         subtitle!,
         desc!,

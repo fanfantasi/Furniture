@@ -36,7 +36,18 @@ abstract class RestClient {
   @POST("/items/itembycategory?page={page}")
   Future<dynamic> itemsbycategory(
       {@Path('page') int? page, @Part() int? categoryid});
+  //Images Item
+  @POST("/items/images")
+  Future<dynamic> imagesitem({@Part() int? itemid});
+
+  //Items Related
+  @POST("/items/related?page={page}")
+  Future<dynamic> itemsrelated(
+      {@Path('page') int? page, @Part() int? categoryid, @Part() int? itemid});
 
   @POST("/items/search?page={page}")
   Future<dynamic> itemsearch({@Path('page') int? page, @Part() String? search});
+
+  @POST("/items/itembyid")
+  Future<dynamic> itembyid({@Part() int? itemid});
 }

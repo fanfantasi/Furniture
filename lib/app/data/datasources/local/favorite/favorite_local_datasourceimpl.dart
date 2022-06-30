@@ -47,7 +47,8 @@ class FavoriteDatasourceHiveImpl implements FavoriteDataSource {
           recommend: e.recommend,
           point: e.point,
           price: e.price,
-          favorite: true);
+          favorite: true,
+          categoryid: e.categoryid);
     }).toList();
   }
 
@@ -89,7 +90,8 @@ class FavoriteDatasourceHiveImpl implements FavoriteDataSource {
           recommend: item.recommend,
           point: item.point,
           price: item.price,
-          favorite: item.favorite);
+          favorite: item.favorite,
+          categoryid: item.categoryid);
       await itemsBox.add(converted);
       return true;
     } on Exception catch (_) {
@@ -116,7 +118,8 @@ class FavoriteDatasourceHiveImpl implements FavoriteDataSource {
               recommend: e.recommend,
               point: e.point,
               price: e.price,
-              favorite: e.favorite!);
+              favorite: e.favorite!,
+              categoryid: e.categoryid);
         })
         .toList()
         .firstWhere((element) => element.id == id);
