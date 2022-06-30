@@ -14,7 +14,7 @@ Menggunakan state management <b>getx</b> dan juga <b>clean architecture</b>
 <b>5. Theme Dark Mode and Light Mode</b><br>
 
 # View Apps
-<img src="https://github.com/fanfantasi/Furniture/blob/Master/assets/images-result.jpg">
+<img src="https://github.com/fanfantasi/Furniture/blob/Master/assets/icons/images-result.jpg">
 
 # Dependencies
 <ul>
