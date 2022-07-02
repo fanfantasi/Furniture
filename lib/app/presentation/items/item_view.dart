@@ -37,6 +37,7 @@ class ItemScreen extends GetView<ItemController> {
             return Stack(
               children: [
                 CustomScrollView(
+                  controller: controller.scrollViewController,
                   slivers: [
                     SliverPersistentHeader(
                       pinned: true,

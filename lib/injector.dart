@@ -25,6 +25,7 @@ import 'package:home_decor/app/domain/usecases/cart/get_local_cart.dart';
 import 'package:home_decor/app/domain/usecases/cart/get_local_single_cart.dart';
 import 'package:home_decor/app/domain/usecases/cart/post_local_cart.dart';
 import 'package:home_decor/app/domain/usecases/cart/update_local_cart.dart';
+import 'package:home_decor/app/domain/usecases/cart/update_local_checked.dart';
 import 'package:home_decor/app/domain/usecases/category/get_remote_category.dart';
 import 'package:home_decor/app/domain/usecases/favorite/delete_local_favorite.dart';
 import 'package:home_decor/app/domain/usecases/favorite/get_local_favorite.dart';
@@ -149,5 +150,6 @@ abstract class Injector {
   @Register.factory(ClearLocalCart)
   @Register.factory(PostLocalCart)
   @Register.factory(UpdatetLocalCart)
+  @Register.factory(UpdatetLocalChecked)
   void configureCartFeatureModuleFactories();
 }

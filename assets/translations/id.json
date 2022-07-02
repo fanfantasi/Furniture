@@ -183,6 +183,10 @@
     "other items" : "Produk lain dari toko ini",
     "see all" : "Lihat semua",
     "shop now" :"Beli sekarang",
+    "my shoping cart": "Keranjang Belanja Saya",
+    "shoping cart" : "Keranjang Belanja",
+    "clear cart" : "Hapus Keranjang Belanja",
     "success add item": "Sukses menambahkan produk",
-    "success update item": "Sukses memperbaharui produk"
+    "success update item": "Sukses memperbaharui produk",
+    "address":"Alamat Pengiriman"
 }

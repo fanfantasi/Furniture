@@ -59,6 +59,7 @@ class CartRepositoryImpl implements CartRepository {
           price: params.price!,
           point: params.point!,
           qty: params.qty!,
+          isChecked: true,
           createdAt: params.createdAt!));
       return Right(bool);
     } catch (_) {
@@ -70,6 +71,17 @@ class CartRepositoryImpl implements CartRepository {
   Future<Either<Failure, CartModel>> updateCart({int? id, int? qty}) async {
     try {
       final item = await localDataSource.updateCart(id: id, qty: qty);
+      return Right(item);
+    } catch (_) {
+      return const Left(Failure('No internet connection'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> isChecked({int? id, bool? isChecked}) async {
+    try {
+      final item =
+          await localDataSource.isChecked(id: id, isChecked: isChecked);
       return Right(item);
     } catch (_) {
       return const Left(Failure('No internet connection'));

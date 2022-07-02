@@ -1,5 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:home_decor/app/core/errors/failure.dart';
 import 'package:home_decor/app/core/network/network_info.dart';
@@ -27,6 +28,7 @@ import '../../data/model/items.dart';
 import '../../domain/usecases/favorite/delete_local_favorite.dart';
 
 class ItemController extends GetxController {
+  final scrollViewController = ScrollController();
   int currentPage = 0;
   int currentPageRatings = 0;
   final shopController = RoundedLoadingButtonController();
@@ -65,7 +67,7 @@ class ItemController extends GetxController {
   List<ResultItems> localitem = [];
   List<ResultItems> get localitems => List.from(localitem);
 
-  RxInt cartCount = 0.obs;
+  RxInt get cartCounts => Get.find<CartController>().carts.length.obs;
 
   @override
   void onInit() async {
@@ -78,7 +80,6 @@ class ItemController extends GetxController {
     } else {
       fetchItemById();
     }
-    cartCount.value = Get.find<CartController>().carts.length;
     super.onInit();
   }
 
@@ -366,14 +367,18 @@ class ItemController extends GetxController {
 
     Future.delayed(const Duration(milliseconds: 300), () {
       addController.reset();
-      cartCount.value = Get.find<CartController>().carts.length;
+      // cartCount.value = Get.find<CartController>().carts.length;
     });
+  }
+
+  void scrollToTop() {
+    scrollViewController.animateTo(0,
+        duration: const Duration(milliseconds: 200), curve: Curves.linear);
   }
 
   void clearCart() async {
     Get.find<CartController>().clearCart();
-    cartCount.value = Get.find<CartController>().carts.length;
-    print(cartCount);
+    // cartCount.value = Get.find<CartController>().carts.length;
   }
 
   void _setState(ViewState state) {

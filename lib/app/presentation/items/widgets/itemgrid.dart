@@ -22,6 +22,7 @@ class ItemGridWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         controller.setChangeState(ViewState.busy);
+        controller.scrollToTop();
         await controller.fetchItemById(itemid: resultItems.id);
       },
       child: Container(

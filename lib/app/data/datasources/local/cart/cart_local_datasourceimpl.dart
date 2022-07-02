@@ -50,6 +50,7 @@ class CartDatasourceHiveImpl implements CartDataSource {
           price: e.price!,
           point: e.point!,
           qty: e.qty!,
+          isChecked: e.isChecked!,
           createdAt: e.createdAt!);
     }).toList();
   }
@@ -68,6 +69,7 @@ class CartDatasourceHiveImpl implements CartDataSource {
               price: e.price!,
               point: e.point!,
               qty: e.qty!,
+              isChecked: e.isChecked!,
               createdAt: e.createdAt!);
         })
         .toList()
@@ -113,6 +115,7 @@ class CartDatasourceHiveImpl implements CartDataSource {
                   price: e.price!,
                   point: e.point!,
                   qty: e.qty! + 1,
+                  isChecked: e.isChecked,
                   createdAt: e.createdAt!);
             })
             .toList()
@@ -129,6 +132,7 @@ class CartDatasourceHiveImpl implements CartDataSource {
             price: cart.price,
             point: cart.point,
             qty: cart.qty,
+            isChecked: cart.isChecked,
             createdAt: cart.createdAt);
         await cartBox.add(converted);
         Fluttertoast.showToast(msg: 'success add item'.tr());
@@ -156,6 +160,7 @@ class CartDatasourceHiveImpl implements CartDataSource {
                 price: e.price!,
                 point: e.point!,
                 qty: qty!,
+                isChecked: e.isChecked,
                 createdAt: e.createdAt!);
           })
           .toList()
@@ -174,9 +179,38 @@ class CartDatasourceHiveImpl implements CartDataSource {
               price: e.price!,
               point: e.point!,
               qty: e.qty!,
+              isChecked: e.isChecked!,
               createdAt: e.createdAt!);
         })
         .toList()
         .firstWhere((element) => element.id == id!);
+  }
+
+  @override
+  Future<bool> isChecked({int? id, bool? isChecked}) async {
+    final cartBox = Hive.box<CartHive>(_kCartBoxName);
+    int i = cartBox.values.toList().indexWhere((element) => element.id == id);
+    if (i != -1) {
+      CartHive converted = cartBox.values
+          .map<CartHive>((e) {
+            return CartHive(
+                id: e.id!,
+                title: e.title!,
+                subtitle: e.subtitle!,
+                desc: e.desc!,
+                image: e.image!,
+                price: e.price!,
+                point: e.point!,
+                qty: e.qty!,
+                isChecked: isChecked,
+                createdAt: e.createdAt!);
+          })
+          .toList()
+          .firstWhere((element) => element.id == id!);
+      await cartBox.putAt(i, converted);
+      return true;
+    } else {
+      return false;
+    }
   }
 }

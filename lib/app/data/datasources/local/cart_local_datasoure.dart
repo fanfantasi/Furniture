@@ -8,4 +8,5 @@ abstract class CartDataSource {
   Future<List<CartModel>> getCart();
   Future<CartModel> getSingleCart({int? id});
   Future<CartModel> updateCart({int? id, int? qty});
+  Future<bool> isChecked({int? id, bool? isChecked});
 }

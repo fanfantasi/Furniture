@@ -15,6 +15,7 @@ class CartModel extends Cart {
       required int price,
       required int point,
       required int qty,
+      required bool isChecked,
       required DateTime createdAt})
       : super(
             id: id,
@@ -25,6 +26,7 @@ class CartModel extends Cart {
             price: price,
             point: point,
             qty: qty,
+            isChecked: isChecked,
             createdAt: createdAt);
 
   factory CartModel.fromJson(Map<String, dynamic> json) =>

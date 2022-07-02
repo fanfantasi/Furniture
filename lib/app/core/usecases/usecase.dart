@@ -85,6 +85,7 @@ class ParamsCart extends Equatable {
   final int? price;
   final int? point;
   final int? qty;
+  final bool? isChecked;
   final DateTime? createdAt;
   const ParamsCart(
       {required this.id,
@@ -95,6 +96,7 @@ class ParamsCart extends Equatable {
       required this.price,
       required this.point,
       required this.qty,
+      required this.isChecked,
       required this.createdAt});
   @override
   List<Object> get props =>

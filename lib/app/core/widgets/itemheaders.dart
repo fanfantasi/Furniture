@@ -252,7 +252,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                           ),
                         ),
                         GestureDetector(
-                            onTap: () => controller.clearCart(),
+                            onTap: () => Get.toNamed(Routes.cart),
                             child: Stack(
                               children: [
                                 Container(
@@ -269,7 +269,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                                   ),
                                 ),
                                 Obx(() => Visibility(
-                                      visible: controller.cartCount > 0,
+                                      visible: controller.cartCounts > 0,
                                       child: Positioned(
                                           top: 0.0,
                                           right: 0.0,
@@ -282,7 +282,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                                             ),
                                             child: Center(
                                               child: AutoSizeText(
-                                                '${(controller.cartCount > 9 ? '9+' : controller.cartCount)}',
+                                                '${(controller.cartCounts > 9 ? '9+' : controller.cartCounts)}',
                                                 maxFontSize: 10,
                                                 minFontSize: 8,
                                                 style: const TextStyle(

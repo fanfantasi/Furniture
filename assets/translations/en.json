@@ -182,6 +182,10 @@
     "other items" : "Other products",
     "see all" : "See all",
     "shop now" :"Shop Now",
+    "my shoping cart": "My Shoping Cart",
+    "shoping cart" : "Shoping Cart",
+    "clear cart" : "Clear Shoping Cart",
     "success add item": "Success add item",
-    "success update item": "Success update item"
+    "success update item": "Success update item",
+    "address":"Address"
 }

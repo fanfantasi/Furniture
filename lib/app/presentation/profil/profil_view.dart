@@ -10,6 +10,7 @@ import 'package:home_decor/app/routes/app_pages.dart';
 import 'package:home_decor/app/theme/theme_service.dart';
 import 'package:home_decor/main.dart';
 import '../../core/widgets/index.dart' as core_widgets;
+import '../cart/cart_controller.dart';
 
 class ProfilScreen extends GetView<ProfilController> {
   const ProfilScreen({Key? key}) : super(key: key);
@@ -193,7 +194,8 @@ class ProfilScreen extends GetView<ProfilController> {
                   fontWeight: FontWeight.w500,
                   color: Theme.of(context).colorScheme.primary),
             ),
-            subtitle: Text('help desc'.tr()),
+            subtitle: Text('my shoping cart'.tr()),
+            onTap: () => Get.toNamed(Routes.cart),
           ),
           const core_widgets.DividerWidget(),
           ListTile(

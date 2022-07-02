@@ -11,4 +11,5 @@ abstract class CartRepository {
   Future<Either<Failure, bool>> insertCart({ParamsCart params});
   Future<Either<Failure, CartModel>> getSingleCart({int? id});
   Future<Either<Failure, CartModel>> updateCart({int? id, int? qty});
+  Future<Either<Failure, bool>> isChecked({int? id, bool? isChecked});
 }

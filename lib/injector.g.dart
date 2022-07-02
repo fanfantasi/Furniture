@@ -97,6 +97,7 @@ class _$Injector extends Injector {
       ..registerFactory((c) => DeleteLocalCart(c<CartRepository>()))
       ..registerFactory((c) => ClearLocalCart(c<CartRepository>()))
       ..registerFactory((c) => PostLocalCart(c<CartRepository>()))
-      ..registerFactory((c) => UpdatetLocalCart(c<CartRepository>()));
+      ..registerFactory((c) => UpdatetLocalCart(c<CartRepository>()))
+      ..registerFactory((c) => UpdatetLocalChecked(c<CartRepository>()));
   }
 }

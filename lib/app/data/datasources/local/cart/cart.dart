@@ -31,6 +31,9 @@ class CartHive {
   @HiveField(8)
   DateTime? createdAt;
 
+  @HiveField(9)
+  bool? isChecked;
+
   CartHive(
       {this.id,
       this.title,
@@ -40,5 +43,6 @@ class CartHive {
       this.price,
       this.point,
       this.qty,
+      this.isChecked,
       this.createdAt});
 }

@@ -15,6 +15,7 @@ CartModel _$CartModelFromJson(Map json) => CartModel(
       price: json['price'] as int,
       point: json['point'] as int,
       qty: json['qty'] as int,
+      isChecked: json['isChecked'] as bool,
       createdAt: DateTime.parse(json['createdAt'] as String),
     );
 
@@ -27,5 +28,6 @@ Map<String, dynamic> _$CartModelToJson(CartModel instance) => <String, dynamic>{
       'price': instance.price,
       'point': instance.point,
       'qty': instance.qty,
+      'isChecked': instance.isChecked,
       'createdAt': instance.createdAt.toIso8601String(),
     };

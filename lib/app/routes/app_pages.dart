@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
+import 'package:home_decor/app/presentation/cart/cart_view.dart';
 import 'package:home_decor/app/presentation/category/category_view.dart';
+import 'package:home_decor/app/presentation/checkout/checkout_binding.dart';
+import 'package:home_decor/app/presentation/checkout/checkout_view.dart';
 import 'package:home_decor/app/presentation/items/item_binding.dart';
 import 'package:home_decor/app/presentation/profil/widgets/languages.dart';
 import 'package:home_decor/app/presentation/promo/promo_binding.dart';
@@ -57,5 +60,14 @@ class AppPages {
         name: Routes.imageview,
         fullscreenDialog: true,
         page: () => const ImagesView()),
+    GetPage(
+        name: Routes.cart,
+        page: () => const CartScreen(),
+        transition: Transition.cupertino),
+    GetPage(
+        name: Routes.checkout,
+        page: () => const CheckoutScreen(),
+        transition: Transition.cupertino,
+        binding: CheckoutBinding()),
   ];
 }
