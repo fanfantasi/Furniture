@@ -5,7 +5,7 @@
     "welcome-intro": "Tamu 1 x 24 Jam Wajib Lapor\nSesuai dengan Perda No. 8 Tahun 2007 Tentang Ketertiban Umum",
     "skip": "Lewati",
     "and": "dan",
-    "other": "lainnya",
+    "other": "Lainnya",
     "content": "Pengaturan Konten",
     "page not found": "Halaman tidak ditemukan",
     "page not found desc": "Maaf, halaman yang Anda cari tidak ada\nAnda dapat kembali lagi nanti",
@@ -74,9 +74,6 @@
     "email": "Surel",
     "email required": "Surel wajib diisi",
     "email validity": "Surel tidak valid",
-
-    "phone": "Telepon",
-    "phone required": "Telepon  is required",
 
     "pin already": "Kode PIN sudah digunakan",
     "pin not found": "Kode PIN tidak ditemukan",
@@ -188,5 +185,19 @@
     "clear cart" : "Hapus Keranjang Belanja",
     "success add item": "Sukses menambahkan produk",
     "success update item": "Sukses memperbaharui produk",
-    "address":"Alamat Pengiriman"
+    "address":"Alamat Pengiriman",
+    "add address":"Tambah alamat baru",
+    "contact":"Kontak",
+    "fullname":"Nama lengkap",
+    "fullname required":"Nama lengkap wajib diisi",
+    "phone":"No. Handphone",
+    "phone required":"No. Handphone wajib diisi",
+    "province":"Provinsi, Kota, Kecamatan dan Kode Pos",
+    "province required":"Provinsi, Kota, Kecamatan dan Kode Pos wajib diisi",
+    "home":"Nama jalan, gedung dan no. rumah",
+    "home required":"Nama jalan, gedung dan no. rumah wajib diisi",
+    "flag as":"Tandai sebagai",
+    "primary address":"Atur sebagai Alamat utama",
+    "house": "Rumah",
+    "office":"Kantor"
 }

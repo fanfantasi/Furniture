@@ -4,7 +4,7 @@
     "login to continue": "Login to Continue",
     "skip": "Skip",
     "and": "and",
-    "other": "other",
+    "other": "Other",
     "content": "Content Settings",
     "page not found": "Page not found",
     "page not found desc": "We are sorry but the page you are looking for does not exist\nYou could return latter again",
@@ -72,9 +72,6 @@
     "email": "Email",
     "email required": "Email  is required",
     "email validity": "Enter a valid email address",
-
-    "phone": "Phone Number",
-    "phone required": "Phone number  is required",
 
     "pin already": "PIN Code already used",
     "pin not found": "PIN Code not found",
@@ -187,5 +184,19 @@
     "clear cart" : "Clear Shoping Cart",
     "success add item": "Success add item",
     "success update item": "Success update item",
-    "address":"Address"
+    "address":"Address",
+    "add address":"Add new address",
+    "contact":"Contact",
+    "fullname":"Fullname",
+    "fullname required":"Full name is required",
+    "phone":"Phone Number",
+    "phone required":"Phone Number is required",
+    "province":"Province, Districts, Subdistricts dan Zip Code",
+    "province required":"Province, Districts, Subdistricts dan Zip Code is required",
+    "home":"Street name, building and no. house",
+    "home required":"Street name, building and no. house is required",
+    "flag as":"Flag as",
+    "primary address":"Set as primary address",
+    "house": "Home",
+    "office":"Office"
 }

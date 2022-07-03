@@ -6,17 +6,17 @@ part of 'address.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class AddressAdapter extends TypeAdapter<SearchHive> {
+class AddressAdapter extends TypeAdapter<AddressHive> {
   @override
   final int typeId = 5;
 
   @override
-  SearchHive read(BinaryReader reader) {
+  AddressHive read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return SearchHive(
+    return AddressHive(
       id: fields[0] as int?,
       name: fields[1] as String?,
       phone: fields[2] as String?,
@@ -34,7 +34,7 @@ class AddressAdapter extends TypeAdapter<SearchHive> {
   }
 
   @override
-  void write(BinaryWriter writer, SearchHive obj) {
+  void write(BinaryWriter writer, AddressHive obj) {
     writer
       ..writeByte(13)
       ..writeByte(0)

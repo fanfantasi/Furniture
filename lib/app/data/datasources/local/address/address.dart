@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 part 'address.g.dart';
 
 @HiveType(adapterName: 'AddressAdapter', typeId: 5)
-class SearchHive {
+class AddressHive {
   @HiveField(0)
   int? id;
 
@@ -45,7 +45,7 @@ class SearchHive {
   @HiveField(12)
   DateTime? createdAt;
 
-  SearchHive(
+  AddressHive(
       {this.id,
       this.name,
       this.phone,

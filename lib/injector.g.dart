@@ -100,4 +100,22 @@ class _$Injector extends Injector {
       ..registerFactory((c) => UpdatetLocalCart(c<CartRepository>()))
       ..registerFactory((c) => UpdatetLocalChecked(c<CartRepository>()));
   }
+
+  @override
+  void configureAddressFeatureModuleFactories() {
+    final KiwiContainer container = KiwiContainer();
+    container
+      ..registerFactory<AddressDataSource>((c) => AddressDatasourceHiveImpl())
+      ..registerFactory<AddressRepository>(
+          (c) => AddressRepositoryImpl(localDataSource: c<AddressDataSource>()))
+      ..registerFactory((c) => GetLocalAddress(c<AddressRepository>()))
+      ..registerFactory((c) => GetSingleLocalAddress(c<AddressRepository>()))
+      ..registerFactory(
+          (c) => GetSingleLocalAddressUtama(c<AddressRepository>()))
+      ..registerFactory((c) => DeleteLocalAddress(c<AddressRepository>()))
+      ..registerFactory((c) => ClearLocalAddress(c<AddressRepository>()))
+      ..registerFactory((c) => PostSingleLocalAddress(c<AddressRepository>()))
+      ..registerFactory(
+          (c) => UpdateSingleLocalAddress(c<AddressRepository>()));
+  }
 }

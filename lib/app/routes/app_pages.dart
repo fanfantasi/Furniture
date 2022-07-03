@@ -1,4 +1,7 @@
 import 'package:get/get.dart';
+import 'package:home_decor/app/presentation/address/address_binding.dart';
+import 'package:home_decor/app/presentation/address/address_view.dart';
+import 'package:home_decor/app/presentation/address/widgets/form_add.dart';
 import 'package:home_decor/app/presentation/cart/cart_view.dart';
 import 'package:home_decor/app/presentation/category/category_view.dart';
 import 'package:home_decor/app/presentation/checkout/checkout_binding.dart';
@@ -69,5 +72,14 @@ class AppPages {
         page: () => const CheckoutScreen(),
         transition: Transition.cupertino,
         binding: CheckoutBinding()),
+    GetPage(
+        name: Routes.address,
+        page: () => const AddressScreen(),
+        transition: Transition.cupertino,
+        binding: AddressBinding()),
+    GetPage(
+        name: Routes.addAddress,
+        page: () => const FormAddWidget(),
+        transition: Transition.cupertino),
   ];
 }

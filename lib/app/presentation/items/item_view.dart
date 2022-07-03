@@ -257,9 +257,7 @@ class ItemScreen extends GetView<ItemController> {
                               style: TextStyle(color: Colors.white),
                             ).tr(),
                             controller: controller.shopController,
-                            onPressed: () {
-                              controller.shopController.reset();
-                            },
+                            onPressed: () => controller.shopNow(),
                             borderRadius: 2,
                             color: Theme.of(context).primaryColor,
                           ),

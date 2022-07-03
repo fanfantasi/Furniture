@@ -13,4 +13,6 @@ abstract class Routes {
   static const imageview = '/imageview';
   static const cart = '/cart';
   static const checkout = '/checkout';
+  static const address = '/address';
+  static const addAddress = '/add_address';
 }

@@ -2,9 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
+import 'package:home_decor/main.dart';
 import '../../core/widgets/index.dart' as core_widgets;
+import 'checkout_controller.dart';
 
-class CheckoutScreen extends StatelessWidget {
+class CheckoutScreen extends GetView<CheckoutController> {
   const CheckoutScreen({Key? key}) : super(key: key);
 
   @override
@@ -33,6 +35,11 @@ class CheckoutScreen extends StatelessWidget {
           child: Column(
             children: [
               core_widgets.HeadersWidget(title: 'address'.tr()),
+              Obx(() {
+                return Container(
+                  child: Text('${controller.addressState.value}'),
+                );
+              })
             ],
           ),
         ),

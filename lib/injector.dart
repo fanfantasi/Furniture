@@ -1,5 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
+import 'package:home_decor/app/data/datasources/local/address/address_local_datasourceimpl.dart';
+import 'package:home_decor/app/data/datasources/local/address_local_datasource.dart';
 import 'package:home_decor/app/data/datasources/local/cart/cart_local_datasourceimpl.dart';
 import 'package:home_decor/app/data/datasources/local/cart_local_datasoure.dart';
 import 'package:home_decor/app/data/datasources/local/favorite/favorite_local_datasourceimpl.dart';
@@ -7,18 +9,27 @@ import 'package:home_decor/app/data/datasources/local/favorite_local_datasource.
 import 'package:home_decor/app/data/datasources/local/search/search_local_datasourceimpl.dart';
 import 'package:home_decor/app/data/datasources/local/search_local_datasource.dart';
 import 'package:home_decor/app/data/datasources/remote/index.dart';
+import 'package:home_decor/app/data/repositories/address_repository_impl.dart';
 import 'package:home_decor/app/data/repositories/cart_repository_impl.dart';
 import 'package:home_decor/app/data/repositories/category_repository_impl.dart';
 import 'package:home_decor/app/data/repositories/favorite_repository_impl.dart';
 import 'package:home_decor/app/data/repositories/items_repository_impl.dart';
 import 'package:home_decor/app/data/repositories/promo_repository_impl.dart';
 import 'package:home_decor/app/data/repositories/search_repository_impl.dart';
+import 'package:home_decor/app/domain/repositories/address_repository.dart';
 import 'package:home_decor/app/domain/repositories/cart_repository.dart';
 import 'package:home_decor/app/domain/repositories/category_repository.dart';
 import 'package:home_decor/app/domain/repositories/favorite_repository.dart';
 import 'package:home_decor/app/domain/repositories/items_repository.dart';
 import 'package:home_decor/app/domain/repositories/promo_repository.dart';
 import 'package:home_decor/app/domain/repositories/search_repository.dart';
+import 'package:home_decor/app/domain/usecases/address/clear_local_address.dart';
+import 'package:home_decor/app/domain/usecases/address/delete_local_address.dart';
+import 'package:home_decor/app/domain/usecases/address/get_local_address.dart';
+import 'package:home_decor/app/domain/usecases/address/get_local_single_address.dart';
+import 'package:home_decor/app/domain/usecases/address/get_local_single_address_utama.dart';
+import 'package:home_decor/app/domain/usecases/address/post_local_address.dart';
+import 'package:home_decor/app/domain/usecases/address/update_local_address.dart';
 import 'package:home_decor/app/domain/usecases/cart/clear_local_cart.dart';
 import 'package:home_decor/app/domain/usecases/cart/delete_local_cart.dart';
 import 'package:home_decor/app/domain/usecases/cart/get_local_cart.dart';
@@ -86,6 +97,7 @@ abstract class Injector {
     configureItemsFeatureModuleFactories();
     configureSearchFeatureModuleFactories();
     configureCartFeatureModuleFactories();
+    configureAddressFeatureModuleFactories();
   }
 
   // Feature module instances
@@ -152,4 +164,16 @@ abstract class Injector {
   @Register.factory(UpdatetLocalCart)
   @Register.factory(UpdatetLocalChecked)
   void configureCartFeatureModuleFactories();
+
+  //Cart
+  @Register.factory(AddressDataSource, from: AddressDatasourceHiveImpl)
+  @Register.factory(AddressRepository, from: AddressRepositoryImpl)
+  @Register.factory(GetLocalAddress)
+  @Register.factory(GetSingleLocalAddress)
+  @Register.factory(GetSingleLocalAddressUtama)
+  @Register.factory(DeleteLocalAddress)
+  @Register.factory(ClearLocalAddress)
+  @Register.factory(PostSingleLocalAddress)
+  @Register.factory(UpdateSingleLocalAddress)
+  void configureAddressFeatureModuleFactories();
 }

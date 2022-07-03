@@ -367,7 +367,19 @@ class ItemController extends GetxController {
 
     Future.delayed(const Duration(milliseconds: 300), () {
       addController.reset();
-      // cartCount.value = Get.find<CartController>().carts.length;
+    });
+  }
+
+  void shopNow() async {
+    setChangeState(ViewState.busy);
+    final cartController = Get.find<CartController>();
+    final res = await cartController.postCart(cart: resultItems);
+    if (res) {
+      Get.toNamed(Routes.cart);
+    }
+
+    Future.delayed(const Duration(milliseconds: 300), () {
+      setChangeState(ViewState.data);
     });
   }
 
