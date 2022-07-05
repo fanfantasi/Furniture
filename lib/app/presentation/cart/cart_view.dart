@@ -134,7 +134,7 @@ class CartScreen extends GetView<CartController> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         SizedBox(
-                                          width: Get.width / 1.8,
+                                          width: Get.width / 1.9,
                                           child: AutoSizeText(
                                             controller.carts[i].title,
                                             maxLines: 2,
@@ -206,7 +206,7 @@ class CartScreen extends GetView<CartController> {
                                             fontSize: 14,
                                             fontWeight: FontWeight.w500)),
                                     SizedBox(
-                                      width: Get.width / 1.66,
+                                      width: Get.width / 1.8,
                                       child: Align(
                                         alignment: Alignment.centerRight,
                                         child: QtyWidget(

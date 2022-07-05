@@ -54,6 +54,7 @@ class _AnimatedToggleTextState extends State<AnimatedToggleText> {
                 ),
               ),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(
                   widget.values.length,

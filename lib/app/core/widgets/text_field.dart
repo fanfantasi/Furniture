@@ -8,6 +8,7 @@ class LabeledText extends StatelessWidget {
     this.focusNode,
     this.validator,
     this.prefixIcon,
+    this.surfixIcon,
     required this.controller,
     required this.keyboardType,
     this.onChange,
@@ -19,6 +20,7 @@ class LabeledText extends StatelessWidget {
   final FocusNode? focusNode;
   final String? Function(String?)? validator;
   final Widget? prefixIcon;
+  final Widget? surfixIcon;
   final TextEditingController controller;
   final TextInputType keyboardType;
   final Function(String)? onChange;
@@ -26,46 +28,27 @@ class LabeledText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      focusNode: focusNode,
-      validator: validator,
-      maxLines: maxLines ?? 1,
-      onChanged: onChange,
-      decoration: InputDecoration(
-          alignLabelWithHint: true,
-          errorStyle: const TextStyle(fontSize: 12),
-          hintText: label,
-          hintStyle: const TextStyle(fontSize: 13),
-          prefixIcon: prefixIcon,
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-            borderSide: const BorderSide(
-              color: Colors.grey,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.0),
-              borderSide: const BorderSide(
-                color: Colors.grey,
-              )),
-          errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.0),
-              borderSide: const BorderSide(
-                color: Colors.red,
-              )),
-          focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.0),
-              borderSide: const BorderSide(
-                color: Colors.red,
-              )),
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(4.0),
-              borderSide: const BorderSide(color: Colors.grey, width: .2)),
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0)),
-      controller: controller,
-      keyboardType: keyboardType,
-      onTap: onTap,
+    return SizedBox(
+      height: 32,
+      child: TextFormField(
+        focusNode: focusNode,
+        validator: validator,
+        maxLines: maxLines ?? 1,
+        onChanged: onChange,
+        decoration: InputDecoration(
+            alignLabelWithHint: true,
+            errorStyle: const TextStyle(fontSize: 12),
+            hintText: label,
+            hintStyle: const TextStyle(fontSize: 13),
+            prefixIcon: prefixIcon,
+            suffixIcon: surfixIcon,
+            border: InputBorder.none,
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 14.0, horizontal: 12.0)),
+        controller: controller,
+        keyboardType: keyboardType,
+        onTap: onTap,
+      ),
     );
   }
 }

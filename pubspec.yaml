@@ -70,7 +70,9 @@ dependencies:
   rounded_loading_button: ^2.0.9
   loading_animation_widget: ^1.1.0+5
   form_field_validator: ^1.1.0
-  
+  geolocator: ^8.2.1
+  geocoding: ^2.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

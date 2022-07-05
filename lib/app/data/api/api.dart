@@ -54,4 +54,20 @@ abstract class RestClient {
   //Ratings
   @POST("/items/ratings")
   Future<dynamic> ratingbyitem({@Path('page') int? page, @Part() int? itemid});
+
+  //Province
+  @GET("/address/province")
+  Future<dynamic> province();
+
+  //Kota
+  @POST("/address/kota")
+  Future<dynamic> kota({@Part() int? kdprov});
+
+  //Kec
+  @POST("/address/kec")
+  Future<dynamic> kec({@Part() int? kdkota});
+
+  //Kel
+  @POST("/address/kel")
+  Future<dynamic> kel({@Part() int? kdkec});
 }

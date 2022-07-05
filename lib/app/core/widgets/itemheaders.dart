@@ -221,7 +221,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                         ),
                         Container(
                           padding: const EdgeInsets.only(left: 8.0),
-                          width: MediaQuery.of(context).size.width / 1.5,
+                          width: MediaQuery.of(context).size.width / 1.6,
                           child: AutoSizeText(
                             title,
                             maxFontSize: 16,

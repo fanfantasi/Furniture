@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:home_decor/app/presentation/address/address_binding.dart';
 import 'package:home_decor/app/presentation/address/address_view.dart';
 import 'package:home_decor/app/presentation/address/widgets/form_add.dart';
+import 'package:home_decor/app/presentation/address/widgets/form_maps.dart';
 import 'package:home_decor/app/presentation/cart/cart_view.dart';
 import 'package:home_decor/app/presentation/category/category_view.dart';
 import 'package:home_decor/app/presentation/checkout/checkout_binding.dart';
@@ -80,6 +81,10 @@ class AppPages {
     GetPage(
         name: Routes.addAddress,
         page: () => const FormAddWidget(),
+        transition: Transition.cupertino),
+    GetPage(
+        name: Routes.addMaps,
+        page: () => const FormMapsWidget(),
         transition: Transition.cupertino),
   ];
 }

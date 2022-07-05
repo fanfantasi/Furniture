@@ -15,4 +15,5 @@ abstract class Routes {
   static const checkout = '/checkout';
   static const address = '/address';
   static const addAddress = '/add_address';
+  static const addMaps = '/add_maps';
 }

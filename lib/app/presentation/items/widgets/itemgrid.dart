@@ -127,7 +127,7 @@ class ItemGridWidget extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 2.0),
                       height: 22,
-                      width: Get.width / 6,
+                      width: Get.width / 5.5,
                       decoration: BoxDecoration(
                           color: Colors.blue[400],
                           borderRadius: const BorderRadius.only(
