@@ -8,7 +8,6 @@ import '../../domain/repositories/search_repository.dart';
 
 class SearchRepositoryImpl implements SearchRepository {
   SearchRepositoryImpl({required this.localDataSource});
-  // local data source
   final SearchDataSource localDataSource;
 
   @override

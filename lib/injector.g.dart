@@ -118,4 +118,16 @@ class _$Injector extends Injector {
       ..registerFactory(
           (c) => UpdateSingleLocalAddress(c<AddressRepository>()));
   }
+
+  @override
+  void configureProvinceFeatureModuleFactories() {
+    final KiwiContainer container = KiwiContainer();
+    container
+      ..registerFactory(
+          (c) => ProvinceRemoteDatasource(client: c<RestClient>()))
+      ..registerFactory((c) => GetRemoteProvince(c<ProvinceRepository>()))
+      ..registerFactory<ProvinceRepository>((c) => ProvinceRepositoryImpl(
+          remoteDataSource: c<ProvinceRemoteDatasource>(),
+          localDataSource: c<ProvinceDataSource>()));
+  }
 }
